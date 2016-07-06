@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div ng-controller="MainController">
+    {{message}}
+    <div>
+        <div>First name  {{person.firstName}}</div>
+        <div>Last name {{person.lastName}}</div>
+        <div>User name {{person.User}}</div>
+        <div>GitDemo {{person.GitDemo}}</div>
+        <div>
+            <img ng-src="{{person.GitDemo.avatar_url}}" title="{{person.Title}}" />
+        </div>
+    </div>
+
+</div>
+@section Scripts{
+    <script src="~/Scripts/NgScripts/Controllers.js"></script>
+}
