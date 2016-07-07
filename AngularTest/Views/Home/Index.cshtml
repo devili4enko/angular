@@ -1,16 +1,3 @@
 ﻿@{
-    ViewBag.Title = "Index";
-}
-<div ng-controller="MainController">
-    <h2>{{message}}</h2>
-    <form name="searchuser" ng-submit="search(username)">
-        <input type="search" required name="username" value=" " placeholder="github user" ng-model="username" />
-        <input type="submit" class="btn" value="Search" />
-    </form>
-    <div ng-include="'Content/html/userDetails.html'" ng-show="gitUser"></div>
-</div>
-
-@section Scripts{
-    <script src="~/Scripts/NgScripts/Controllers.js"></script>
-    <script src="~/Scripts/NgScripts/gitHub.js"></script>
+    ViewBag.Title = "GitHub Viewer";
 }

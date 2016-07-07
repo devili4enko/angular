@@ -1,0 +1,16 @@
+﻿<div>
+    <a href="#/main">Back to search</a>
+    <h4>{{repo.name}} Open Issues count: {{repo.open_issues}}</h4>
+    <table class="table-striped">
+        <thead>
+            <tr>Name</tr>
+            <tr>Avatar</tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="subscriber in repoSubscribers">
+                <td><a href="{{subscriber.html_url}}">{{subscriber.login}}</a></td>
+                <td><img src="{{subscriber.avatar_url}}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -97,7 +97,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\html\userDetails.html" />
+    <Content Include="Content\html\main.html" />
+    <Content Include="Content\html\repo.html" />
+    <Content Include="Content\html\user.html" />
     <Content Include="Content\img\1By2cYbkAbA.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -897,6 +899,9 @@
     <Content Include="Scripts\jquery-2.0.0.js" />
     <Content Include="Scripts\jquery-2.0.0.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\NgScripts\app.js" />
+    <Content Include="Scripts\NgScripts\RepoController.js" />
+    <Content Include="Scripts\NgScripts\UserController.js" />
     <Content Include="Scripts\NgScripts\Controllers.js" />
     <Content Include="Scripts\NgScripts\gitHub.js" />
     <Content Include="Web.config" />

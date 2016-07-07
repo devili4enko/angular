@@ -15,9 +15,25 @@
             });
         };
 
+        var getRepo = function (user, reponame) {
+
+            return $http.get('https://api.github.com/repos/' + user + '/' + reponame + '').then(function (response) {
+                return response.data;
+            });
+        };
+
+        var getSubscribers = function (subscribersUrl) {
+
+            return $http.get(subscribersUrl).then(function (response) {
+                return response.data;
+            });
+        };
+
         return {
             getUser: getUser,
-            getRepos: getRepos
+            getRepos: getRepos,
+            getRepo: getRepo,
+            getSubscribers: getSubscribers
         };
     };
 

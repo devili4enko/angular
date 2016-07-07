@@ -1,53 +1,35 @@
-var app = angular.module("app", []);
+(function () {
+    var app = angular.module("app");
 
+    var mainController = function ($scope, $interval, $location) {
 
-var MainController = function ($scope, gitHub, $interval,
-                               $log, $location, $anchorScroll) {
+        var countdownInterval = null;
 
-    var countdownInterval = null;
+        $scope.message = "Github Viewer";
+        $scope.username = "angular";
+        var countdown = 5;
 
-    $scope.message = "Github Viewer";
-    $scope.username = "angular";
-    $scope.orderBy = "stargazers_count";
-    $scope.orderType = "+";
-    var countdown = 5;
+        var decrementCountdown = function () {
+            countdown -= 1;
+            if (countdown === 0) {
+                $scope.search($scope.username);
+            }
+        };
 
-    var startCountdown = function () {
-        countdownInterval = $interval(decrementCountdown, 1000, countdown);
-    };
+        var startCountdown = function () {
+            countdownInterval = $interval(decrementCountdown, 1000, countdown);
+        };
 
-    $scope.search = function (username) {
-        $log.info("Seacring for " + username);
-        var t = gitHub.getUser(username);
-        console.log("search: "+ t);
-            t.then(onUserComplete);
-        if (countdownInterval) {
-            $interval.cancel(countdownInterval);
+        $scope.search = function (username) {
+            if (countdownInterval) {
+                $interval.cancel(countdownInterval);
+            }
+
+            $location.path("/user/" + username);
         }
-    }
 
-    var onRepos = function (data) {
-        $scope.repos = data;
-
-        $location.hash('userDetails');
-        $anchorScroll();
+        startCountdown();
     };
 
-    var onUserComplete = function (data) {
-        $scope.gitUser = data;
-        var q = gitHub.getRepos($scope.gitUser);
-        console.log("onUserComplete: " + q);
-        q.then(onRepos);
-    };
-
-    var decrementCountdown = function () {
-        countdown -= 1;
-        if (countdown == 0) {
-            $scope.search($scope.username);
-        }
-    };
-
-    startCountdown();
-};
-
-app.controller("MainController", ["$scope", "gitHub", "$interval", "$log", "$location", "$anchorScroll", MainController]);
+    app.controller("MainController", ["$scope", "$interval", "$location", mainController]);
+}());

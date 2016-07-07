@@ -1,6 +1,7 @@
-﻿<div id="userDetails">
+﻿<div>
+    <a href="#/main">Back to search</a>
     <div>
-        <h2>Name  {{gitUser.name}}</h2>
+        <h2>Name {{gitUser.name}}</h2>
         <div>
             <h2>Company {{gitUser.company}}</h2>
             <img ng-src="http://www.gravatar.com/avatar/{{gitUser.gravatar_id}}" title="{{person.Title}}" />
@@ -23,7 +24,7 @@
         </label>
     </form>
     <br />
-    <table>
+    <table class="table-striped">
         <thead>
             <tr>Name</tr>
             <tr>Stars</tr>
@@ -31,7 +32,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="repo in repos | orderBy: orderType + orderBy">
-                <td>{{repo.name}}</td>
+                <td><a href="#/repo/{{username}}/{{repo.name}}"> {{repo.name}}</a></td>
                 <td>{{repo.stargazers_count | number}}</td>
                 <td>{{repo.language}}</td>
             </tr>
