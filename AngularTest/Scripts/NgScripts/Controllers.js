@@ -3,31 +3,26 @@ var app = angular.module("app", []);
 
 var MainController = function ($scope, $http) {
 
-    $scope.message = "Hello from Ng Controller";
+    $scope.message = "Github Viewer";
+    $scope.username = "angular";
 
-    var user = $http.get('/api/user');
 
-    var person = {
-        firstName: "Name",
-        lastName: "Surname",
-        picSrc: "https://pp.vk.me/c543100/v543100942/10be4/JAZbFSg9B6w.jpg",
-        Title: "Surname",
-        User: "",
-        GitDemo: ""
+    $scope.search = function (username) {
+        console.log(username);
+        $http.get("https://api.github.com/users/" + username).then(onUserComplete);
+    }
+
+    var onRepos = function (response) {
+        $scope.repos = response.data;
     };
-
-    user.then(function (response) {
-        person.User = response.data;
-    });
 
     var onUserComplete = function (response) {
-        person.GitDemo = response.data;
+        $scope.gitUser = response.data;
+        $http.get($scope.gitUser.repos_url).then(onRepos);
     };
 
-    $http.get("https://api.github.com/users/robconery").then(onUserComplete);
-
-    $scope.person = person;
-
+    $scope.orderBy = "stargazers_count";
+    $scope.orderType = "+";
 };
 
 app.controller("MainController", ["$scope", "$http", MainController]);
