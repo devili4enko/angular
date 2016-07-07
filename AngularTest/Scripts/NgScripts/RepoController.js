@@ -13,7 +13,6 @@
         var onRepo = function (data) {
             $scope.repo = data;
             gitHub.getSubscribers($scope.repo.subscribers_url).then(onSubscribers);
-            console.log($scope.repo);
         };
 
         gitHub.getRepo($scope.username, $scope.repoName).then(onRepo);
