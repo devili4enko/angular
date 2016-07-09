@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "AngEvents";
+    Layout = "~/Views/Shared/_LayoutAngEvents.cshtml";
+}
+
+<div ng-app="eventApp" ng-view>
+    <div class="container">
+        <div ng-controller="EventController">
+            <img ng-src="{{event.imgUrl}}" />
+            <div class="row">
+                <div>
+                    <h2 ng-bind="event.name"></h2>
+                </div>
+            </div>
+            <button class="btn" ng-click="toggleR()" ng-disabled="boolValue">Disabled</button>
+            <h2 ng-click="toggleR()" ng-show="boolValue">Showed</h2>
+            <h2 ng-click="toggleR()" ng-hide="boolValue">hidden</h2>
+            <div ng-non-bindable>{{2+2}}</div>
+            <div>{{2+2}}</div>
+            <div class="row">
+                <div>
+                    <div><strong>Date: </strong>{{event.date}}
+                    </div>
+                    <div><strong>Time: </strong>{{event.time}}
+                    </div>
+                </div>
+                <div><small ng-bind-template="{{event.location.city}} {{event.location.address}}"></small>
+                </div>
+            </div>
+            <hr />
+            <ul class="thumbnail">
+                <li ng-repeat="session in event.sessions">
+                    <div>
+                        <input value="-" type="button" class="btn-danger" ng-click="downVoteSession(session)" />
+                        <h4>{{session.upVoteCount}}</h4> 
+                        <input value="+" type="button" class="btn-success" ng-click="upVoteSession(session)" />
+                    </div>
+                    <div class="well">
+                        <div class="well panel-title">{{session.name}}</div>
+                        <h6> {{session.creatorName}}</h6> <br />
+                        <span>Duration: {{session.duration}}</span><br />
+                        <span>Theme: {{session.theme}}</span><br />
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

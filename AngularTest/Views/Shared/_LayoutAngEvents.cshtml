@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html ng-app="eventApp">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 
 </head>
-<body>
+<body ng-cloak>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -39,11 +39,9 @@
     <script src="~/Scripts/jquery-2.0.0.min.js"></script>
     <script src="~/Scripts/angular.js"> </script>
     <script src="~/Scripts/angular-route.js"> </script>
+    <script src="~/Scripts/angular-sanitize.js"> </script>
     <script src="~/Scripts/NgScripts/app.js"> </script>
-    <script src="~/Scripts/NgScripts/controllers/MainController.js"></script>
-    <script src="~/Scripts/NgScripts/controllers/UserController.js"></script>
-    <script src="~/Scripts/NgScripts/controllers/RepoController.js"></script>
-    <script src="~/Scripts/NgScripts/services/gitHub.js"></script>
+    <script src="~/Scripts/NgScripts/controllers/eventController.js"> </script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
-﻿(function () {
+﻿(function() {
     var app = angular.module("app", ["ngRoute"]);
 
-    app.config(function ($routeProvider) {
+    app.config(function($routeProvider) {
         $routeProvider
             .when("/main", {
                 templateUrl: "Content/html/main.html",
@@ -17,5 +17,6 @@
             })
             .otherwise({ redirectTo: "/main" });
     });
+}());
 
-}())
+var eventApp = angular.module("eventApp", ['ngSanitize']);

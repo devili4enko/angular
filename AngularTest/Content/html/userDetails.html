@@ -1,0 +1,40 @@
+﻿<div id="userDetails">
+    <div>
+        <h2>Name  {{gitUser.name}}</h2>
+        <div>
+            <h2>Company {{gitUser.company}}</h2>
+            <img ng-src="http://www.gravatar.com/avatar/{{gitUser.gravatar_id}}" title="{{person.Title}}" />
+        </div>
+    </div>
+    Order:
+    <select ng-model="orderBy">
+        <option value="name">Name</option>
+        <option value="stargazers_count">Stars</option>
+        <option value="language">Language</option>
+    </select>
+    <form>
+        <label>
+            <input type="radio" ng-model="orderType" value="-">
+            Asc
+        </label>
+        <label>
+            <input type="radio" ng-model="orderType" value="+">
+            Desc
+        </label>
+    </form>
+    <br />
+    <table>
+        <thead>
+            <tr>Name</tr>
+            <tr>Stars</tr>
+            <tr>Landuage</tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="repo in repos | orderBy: orderType + orderBy">
+                <td>{{repo.name}}</td>
+                <td>{{repo.stargazers_count | number}}</td>
+                <td>{{repo.language}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -13,5 +13,10 @@ namespace AngularTest.Controllers
         {
             return View();
         }
+
+        public ActionResult AngEvents()
+        {
+            return View();
+        }
     }
 }
